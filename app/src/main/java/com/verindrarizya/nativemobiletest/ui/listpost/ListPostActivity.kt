@@ -1,12 +1,14 @@
 package com.verindrarizya.nativemobiletest.ui.listpost
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.verindrarizya.nativemobiletest.R
 import com.verindrarizya.nativemobiletest.databinding.ActivityListPostBinding
 import com.verindrarizya.nativemobiletest.domain.entity.Post
+import com.verindrarizya.nativemobiletest.ui.detailpost.DetailPostActivity
 import com.verindrarizya.nativemobiletest.util.view.setGone
 import com.verindrarizya.nativemobiletest.util.view.setVisible
 import dagger.hilt.android.AndroidEntryPoint
@@ -24,16 +26,24 @@ class ListPostActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        initConfigActionBar()
+        initSwipeRefresh()
+        initConfigRv()
         initObservers()
     }
 
+    private fun initSwipeRefresh() {
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            viewModel.getPosts()
+            binding.swipeRefreshLayout.isRefreshing = false
+        }
+    }
+
     private fun initObservers() {
-        // posts
         viewModel.posts.observe(this) { posts: List<Post> ->
             initAdapter(posts)
         }
 
-        // loading state
         viewModel.isLoading.observe(this) {
             if (it == true) {
                 binding.rvPosts.setGone()
@@ -47,6 +57,7 @@ class ListPostActivity : AppCompatActivity() {
 
         viewModel.isError.observe(this) {
             if (it == true) {
+                binding.rvPosts.setGone()
                 binding.tvErrorStatement.setVisible()
             } else {
                 binding.tvErrorStatement.setGone()
@@ -56,15 +67,24 @@ class ListPostActivity : AppCompatActivity() {
 
     private fun initAdapter(posts: List<Post>) {
         val postAdapter = PostAdapter { post: Post ->
-            Log.d("PostClicked", "id: ${post.id}")
+            val intent = Intent(this, DetailPostActivity::class.java)
+            intent.putExtra(DetailPostActivity.POST_EXTRA, post)
+            startActivity(intent)
         }
 
         postAdapter.submitList(posts)
+        binding.rvPosts.adapter = postAdapter
+    }
 
+    private fun initConfigRv() {
         with(binding.rvPosts) {
+            clipToPadding = false
             layoutManager = LinearLayoutManager(this@ListPostActivity)
             setHasFixedSize(true)
-            adapter = postAdapter
         }
+    }
+
+    private fun initConfigActionBar() {
+        supportActionBar?.title = getString(R.string.list_post_appbar_title)
     }
 }

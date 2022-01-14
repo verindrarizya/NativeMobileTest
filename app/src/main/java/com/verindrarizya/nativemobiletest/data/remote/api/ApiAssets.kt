@@ -1,5 +1,5 @@
 package com.verindrarizya.nativemobiletest.data.remote.api
 
 object ApiAssets {
-    val url = "https://jsonplaceholder.typicode.com/"
+    const val BASE_URL = "https://jsonplaceholder.typicode.com/"
 }

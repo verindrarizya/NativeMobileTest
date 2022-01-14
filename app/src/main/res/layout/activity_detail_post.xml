@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="12dp"
+    android:paddingEnd="12dp"
+    tools:context=".ui.detailpost.DetailPostActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:descendantFocusability="blocksDescendants"
+        android:paddingTop="12dp">
+
+        <TextView
+            android:id="@+id/post_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="title"/>
+
+        <ImageView
+            android:id="@+id/icon_person"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@drawable/ic_person_black_24"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="4dp"
+            app:layout_constraintTop_toBottomOf="@id/post_title"
+            app:layout_constraintEnd_toStartOf="@id/post_username"/>
+
+        <TextView
+            android:id="@+id/post_username"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/icon_person"
+            app:layout_constraintBottom_toBottomOf="@id/icon_person"
+            app:layout_constraintEnd_toStartOf="@id/icon_company"
+            android:layout_marginEnd="8dp"
+            android:textStyle="italic"
+            android:text="username"/>
+
+        <ImageView
+            android:id="@+id/icon_company"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@drawable/ic_company_black_24"
+            app:layout_constraintTop_toTopOf="@id/icon_person"
+            app:layout_constraintBottom_toBottomOf="@id/icon_person"
+            app:layout_constraintEnd_toStartOf="@id/post_company"
+            android:layout_marginEnd="4dp"
+            android:layout_marginStart="8dp"/>
+
+        <TextView
+            android:id="@+id/post_company"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/icon_company"
+            app:layout_constraintBottom_toBottomOf="@id/icon_company"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textStyle="italic"
+            android:text="company"/>
+
+        <TextView
+            android:id="@+id/post_body"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/icon_person"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="6dp"
+            android:textSize="16sp"
+            android:text="Lorem ipsum dolor sit amet"/>
+
+        <ImageView
+            android:id="@+id/icon_comments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/post_body"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_comment_black_24"/>
+
+        <TextView
+            android:id="@+id/text_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/icon_comments"
+            app:layout_constraintBottom_toBottomOf="@id/icon_comments"
+            app:layout_constraintStart_toEndOf="@id/icon_comments"
+            android:textStyle="bold"
+            android:layout_marginStart="6dp"
+            android:text="@string/comments"/>
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/icon_comments"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:visibility="gone"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_comments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/icon_comments"
+            android:overScrollMode="never"
+            tools:listitem="@layout/comment_item"/>
+
+        <LinearLayout
+            android:id="@+id/error_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/icon_comments"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="error, please refresh"/>
+
+            <Button
+                android:id="@+id/btn_refresh"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                style="?attr/materialButtonOutlinedStyle"
+                android:text="Refresh"/>
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
