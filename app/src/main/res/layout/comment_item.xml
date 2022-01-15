@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#B2BDFA"
-    android:padding="8dp"
+    android:background="@drawable/bg_comment"
+    android:padding="10dp"
     android:layout_marginBottom="8dp">
 
     <ImageView

@@ -3,12 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/V/Android/Pribadi/NativeMobileTest/app/src/main/res/drawable/bg_comment.xml" value="0.5" />
+        <entry key="..\:/V/Android/Pribadi/NativeMobileTest/app/src/main/res/drawable/bg_comments.xml" value="0.22205128205128205" />
         <entry key="..\:/V/Android/Pribadi/NativeMobileTest/app/src/main/res/drawable/ic_company_black_24.xml" value="0.22552083333333334" />
         <entry key="..\:/V/Android/Pribadi/NativeMobileTest/app/src/main/res/drawable/ic_person_black_24.xml" value="0.22552083333333334" />
         <entry key="..\:/V/Android/Pribadi/NativeMobileTest/app/src/main/res/layout/activity_detail_post.xml" value="0.21" />
         <entry key="..\:/V/Android/Pribadi/NativeMobileTest/app/src/main/res/layout/activity_list_post.xml" value="0.22" />
         <entry key="..\:/V/Android/Pribadi/NativeMobileTest/app/src/main/res/layout/activity_main.xml" value="0.1953125" />
-        <entry key="..\:/V/Android/Pribadi/NativeMobileTest/app/src/main/res/layout/comment_item.xml" value="0.209375" />
+        <entry key="..\:/V/Android/Pribadi/NativeMobileTest/app/src/main/res/layout/comment_item.xml" value="0.5" />
+        <entry key="..\:/V/Android/Pribadi/NativeMobileTest/app/src/main/res/layout/comment_shimmer.xml" value="0.22" />
         <entry key="..\:/V/Android/Pribadi/NativeMobileTest/app/src/main/res/layout/post_item.xml" value="0.33" />
         <entry key="..\:/V/Android/Pribadi/NativeMobileTest/app/src/main/res/layout/post_shimmer.xml" value="0.209375" />
       </map>

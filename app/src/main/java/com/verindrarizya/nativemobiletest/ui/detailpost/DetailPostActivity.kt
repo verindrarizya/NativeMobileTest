@@ -32,8 +32,16 @@ class DetailPostActivity : AppCompatActivity() {
         initConfigActionBar()
         populatePostView(postData)
         initConfigRv()
+        initSwipeRefresh(postData.id)
         initObservers()
         initRefreshButtonAction(postData.id)
+    }
+
+    private fun initSwipeRefresh(postId: Int) {
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            viewModel.getComments(postId)
+            binding.swipeRefreshLayout.isRefreshing = false
+        }
     }
 
     private fun initObservers() {
@@ -92,6 +100,7 @@ class DetailPostActivity : AppCompatActivity() {
         supportActionBar?.apply {
             title = getString(R.string.detail_post_appbar_title)
             setDisplayHomeAsUpEnabled(true)
+            setHomeAsUpIndicator(R.drawable.ic_arrow_back_ios_new_24)
         }
     }
 
