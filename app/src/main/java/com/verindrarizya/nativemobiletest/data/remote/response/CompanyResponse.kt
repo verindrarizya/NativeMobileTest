@@ -2,7 +2,7 @@ package com.verindrarizya.nativemobiletest.data.remote.response
 
 import com.google.gson.annotations.SerializedName
 
-data class Company(
+data class CompanyResponse(
 
 	@field:SerializedName("bs")
 	val bs: String,
