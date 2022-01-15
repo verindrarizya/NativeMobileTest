@@ -10,6 +10,7 @@ buildscript {
     ext.activity_version = "1.4.0"
 
     ext.swiperefreshlayout_version ="1.1.0"
+    ext.cardview_version = "1.0.0"
 
     ext.lifecycle_version = "2.4.0"
 
@@ -19,6 +20,8 @@ buildscript {
     ext.logging_interceptor_version = '4.9.0'
 
     ext.hilt_version = "2.38.1"
+
+    ext.shimmer_version = "0.5.0"
 
     repositories {
         google()
