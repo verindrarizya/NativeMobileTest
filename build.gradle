@@ -24,6 +24,7 @@ buildscript {
     ext.shimmer_version = "0.5.0"
 
     ext.junit_version = "4.13.2"
+    ext.mockito_version = "3.12.4"
 
     repositories {
         google()
