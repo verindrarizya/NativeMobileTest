@@ -10,8 +10,7 @@ import org.junit.Before
 
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.Mockito.`when`
-import org.mockito.Mockito.mock
+import org.mockito.Mockito.*
 import org.mockito.junit.MockitoJUnitRunner
 
 @RunWith(MockitoJUnitRunner::class)
@@ -36,17 +35,19 @@ class UserRepositoryTest {
 
         val result = userRepository.getUser(userId)
 
+        verify(userService).getUser(userId)
         assertEquals(expectedValue, result)
     }
 
     @Test
-    fun getUserExpectResource() =  runBlocking {
+    fun getUserExpectResourceError() =  runBlocking {
         val expectedValue = Resource.Error("")
 
         `when`(userService.getUser(userId)).thenThrow(RuntimeException(""))
 
         val result = userRepository.getUser(userId)
 
+        verify(userService).getUser(userId)
         assertEquals(expectedValue, result)
     }
 }
