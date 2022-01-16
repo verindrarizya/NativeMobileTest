@@ -151,7 +151,7 @@ object DataDummy {
                     "$phoneTemplate${i+1}",
                     "$nameTemplate${i+1}",
                     companyResponses[i],
-                    i,
+                    i+1,
                     "$emailTemplate${i+1}",
                     "$usernameTemplate${i+1}"
                 ))
