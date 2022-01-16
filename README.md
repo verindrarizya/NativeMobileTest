@@ -7,6 +7,7 @@
 
 - Presentation Layer, contains UI that are coordinated by ViewModels which execute the use cases.
 - Domain Layer, completely pure kotlin module containing entities, use cases, & repository interfaces.
+<br>** Cheat a bit on this, cause this project use parcelable and implement it on the entities.
 - Data Layer, contains repository implementation.
 
 ## Build With
